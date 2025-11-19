@@ -11,6 +11,302 @@
 */
 
 .page {
+  max-width: 696px;
+  font-family: var(--main-font), var(--accent-font), sans-serif;
+  font-variation-settings: var(--text-weight);
   min-inline-size: 320px;
-  min-block-size: 100dvb;
+  block-size: 100%;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  margin-inline: auto;
+}
+
+.header {
+  border: var(--border-line);
+  background-color: var(--background-color);
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--header-size);
+  padding-bottom: var(--header-size);
+  margin: 100px 0 97px;
+}
+
+.header__title {
+  font-size: var(--title-size);
+  line-height: 100%;
+  margin-bottom: 20px;
+}
+
+.header__subtitle {
+  display: flex;
+  justify-content: center;
+  font-size: var(--subtitle-size);
+}
+
+.main {
+  box-sizing: border-box;
+  display: grid;
+  gap: 50px;
+}
+
+.section {
+  background-color: var(--background-color);
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: var(--border-line);
+  margin-inline: auto;
+  max-width: 696px;
+}
+
+.image {
+  border-top: var(--border-line);
+  border-bottom: var(--border-line);
+  box-sizing: border-box;
+  position: relative;
+  object-fit: cover;
+}
+
+.card__title {
+  padding: 4px 10px;
+  font-size: 18px;
+}
+
+.card__wrapper {
+  padding: 25px;
+}
+
+.picture {
+  display: flex;
+  width: 100%;
+  /*---------------УДАЛИТЬ КОММЕНТ ЧТОБЫ СДЕЛАТЬ КАРТИНКИ КВАДРАТНЫМИ------------------*/
+  /*aspect-ratio: 1 / 1;
+  object-fit: cover;*/
+}
+
+.card__logo {
+  font-family: var(--accent-font);
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  position: absolute;
+  text-transform: uppercase;
+  opacity: 50%;
+  font-size: 14px;
+  text-shadow: 0 0 1px white;
+}
+
+@supports (
+  ((text-stroke: 1px white) or (-webkit-text-stroke: 1px white)) and
+    (mix-blend-mode: hard-light)
+) {
+  .card__logo {
+    text-shadow: none;
+    text-stroke: 1px white;
+    -webkit-text-stroke: 1px white;
+    mix-blend-mode: hard-light;
+  }
+}
+
+.card__text {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 120%;
+}
+
+.card__text:last-of-type {
+  margin-bottom: 0;
+}
+
+.button__zone {
+  display: flex;
+  justify-self: end;
+  align-items: end;
+  margin-top: 25px;
+}
+
+.button {
+  background-color: var(--background-color);
+  font-family: var(--accent-font);
+  min-width: 130px;
+  height: 38px;
+  padding-block: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #000;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: "";
+  color: white;
+  background: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.5s ease-in-out;
+  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+}
+
+.button:hover::after {
+  transform: translateX(0);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 black;
+}
+
+.button svg {
+  color: black;
+  position: relative;
+  z-index: 2;
+}
+
+.button__text {
+  color: black;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+}
+
+@supports ((mix-blend-mode: difference)) {
+  .button__text {
+    color: #fff;
+    mix-blend-mode: difference;
+  }
+
+  .button svg {
+    color: #fff;
+    mix-blend-mode: difference;
+  }
+}
+
+.card__icon-button {
+  border: none;
+  background-color: white;
+  height: 38px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.footer__button {
+  width: 335px;
+  min-height: 55px;
+  padding: 17px 0px;
+}
+
+.dialog {
+  font-family: var(--accent-font);
+  padding: 29px 27px;
+  max-width: 353px;
+  border: var(--border-line);
+}
+
+.dialog-top {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog__icon {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+}
+
+.dialog-text {
+  max-width: 260px;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+body:has(dialog[close]) {
+  overflow: hidden;
+}
+
+.dialog-button {
+  width: 100%;
+  min-height: 38px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-button .button__text {
+  text-transform: uppercase;
+}
+
+/*-------------------------------------------------*/
+
+@media (width <= 768px) {
+  .dialog {
+    padding: 28px 42px;
+    max-width: 345px;
+  }
+
+  .footer__button {
+    flex-direction: column;
+    width: 306px;
+    height: 84px;
+  }
+
+  .footer__button svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+}
+
+/* -------------ФИЛЬТРЫ------------------*/
+
+.filter__brightness {
+  filter: brightness(80%);
+}
+
+.filter_grayscale {
+  filter: grayscale(50%);
+}
+
+.filter__contrast-invert {
+  filter: contrast(50%) invert(100%);
+}
+
+.filter__hue-rotate {
+  filter: hue-rotate(0.5turn);
+}
+
+.filter__opacity {
+  filter: opacity(80%);
+}
+
+.filter__sepia {
+  filter: sepia(40%);
+}
+
+.filter__invert {
+  filter: invert(100%);
 }
