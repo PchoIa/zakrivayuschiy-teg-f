@@ -13,7 +13,7 @@
 .page {
   max-width: 696px;
   font-family: var(--main-font), var(--accent-font), sans-serif;
-  font-variation-settings: var(--text-weight);
+  font-variation-settings:  var(--text-weight), "wdth" var(--title-weight);
   min-inline-size: 320px;
   block-size: 100%;
   background-image: var(--background-image);
@@ -69,12 +69,12 @@
   border-bottom: var(--border-line);
   box-sizing: border-box;
   position: relative;
-  object-fit: cover;
 }
 
 .card__title {
   padding: 4px 10px;
   font-size: 18px;
+  font-variation-settings:  var(--text-weight), "wdth" var(--title-weight);
 }
 
 .card__wrapper {
@@ -84,9 +84,10 @@
 .picture {
   display: flex;
   width: 100%;
-  /*---------------УДАЛИТЬ КОММЕНТ ЧТОБЫ СДЕЛАТЬ КАРТИНКИ КВАДРАТНЫМИ------------------*/
-  /*aspect-ratio: 1 / 1;
-  object-fit: cover;*/
+  object-fit: cover;
+  /*------------из за того, что нужно сделать в проекте картинки квадратыми, теряется текст в мемах =( --------*/
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .card__logo {
@@ -117,6 +118,8 @@
   margin-bottom: 25px;
   font-size: 18px;
   line-height: 120%;
+  font-variation-settings:  var(--text-weight), "wdth" var(--title-weight);
+
 }
 
 .card__text:last-of-type {
@@ -194,9 +197,16 @@
 }
 
 .card__icon-button {
-  border: none;
+  border: 2px solid transparent;
   background-color: white;
   height: 38px;
+  padding: 0;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.card__icon-button:focus-visible{
+  border: var(--border-line);
 }
 
 .footer {
