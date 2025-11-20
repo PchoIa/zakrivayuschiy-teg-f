@@ -133,7 +133,7 @@
   margin-top: 25px;
 }
 
-.button {
+button:not(.card__icon-button) {
   background-color: var(--background-color);
   font-family: var(--accent-font);
   min-width: 130px;
@@ -147,9 +147,10 @@
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.button::after {
+button:not(.card__icon-button)::after {
   content: "";
   color: white;
   background: #000;
@@ -162,16 +163,16 @@
   height: 100%;
 }
 
-.button:hover::after {
+button:not(.card__icon-button):hover::after {
   transform: translateX(0);
 }
 
-.button:focus {
+button:not(.card__icon-button):focus {
   outline: none;
   box-shadow: 2px 2px 0 black;
 }
 
-.button svg {
+button svg:not(.card__icon-button) {
   color: black;
   position: relative;
   z-index: 2;
@@ -190,7 +191,7 @@
     mix-blend-mode: difference;
   }
 
-  .button svg {
+  .button svg:not(.card__icon-button) {
     color: #fff;
     mix-blend-mode: difference;
   }
