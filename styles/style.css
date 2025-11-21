@@ -13,7 +13,7 @@
 .page {
   max-width: 696px;
   font-family: var(--main-font), var(--accent-font), sans-serif;
-  font-variation-settings:  var(--text-weight), "wdth" var(--title-weight);
+  font-variation-settings: "wght" var(--text-weight), "wdth" var(--title-weight);
   min-inline-size: 320px;
   block-size: 100%;
   background-image: var(--background-image);
@@ -74,7 +74,7 @@
 .card__title {
   padding: 4px 10px;
   font-size: 18px;
-  font-variation-settings:  var(--text-weight), "wdth" var(--title-weight);
+  font-variation-settings: "wght" var(--text-weight), "wdth" var(--title-weight);
 }
 
 .card__wrapper {
